@@ -12,7 +12,7 @@ Esto es un Simple Script escrito para Shell Linux y para Batch de DOS para hacer
 ## Como Usar Estos Archivos
     
 
-Simple, **copiar los archivos console y/o console.bat en la carpeta raiz del proyecto symfony y listo** eso es todo luego si tienes, en windows o --nix instalado globalmente el php es todo mas sencillo simplemente teclea **console ** Seguido del comando symfony normal..
+Simple, **copiar los archivos console y/o console.bat en la carpeta raiz del proyecto symfony y listo** eso es todo luego si tienes, en windows o --nix instalado globalmente el php es todo mas sencillo simplemente teclea **console** Seguido del comando symfony normal, Ejemplo:
 
       console doctrine:schema:create --dump-sql
       
