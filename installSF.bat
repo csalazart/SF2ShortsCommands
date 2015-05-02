@@ -14,9 +14,11 @@ color 2F
 @echo. 
 @echo Si es lo que desea Hacer Presione cualquier Tecla de lo Contrario presione Cltr + C
 pause>null
-@SET _PROYECTO=%1
-@echo php symfony %*
-php symfony %* 
+if NOT EXIST symfony goto nosymfony
+
+SET _PROYECTO=%1
+:: @echo php symfony %*
+@php symfony %* 
 
 if %_PROYECTO%==demo goto demo
 set mensaje=
@@ -37,4 +39,7 @@ goto fin
 color 07
 pause
 
-
+:nosymfony
+@echo El Archivo de instalacion de symfony no se encuentra debes descargarlo desde la web de http://Symfony.com/donwloads
+@echo Si lo has descargado pero no esta en el mismo directorio que este archivo debes copiarlo o declararlo como global en el PATH de windows
+color 07
