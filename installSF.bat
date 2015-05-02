@@ -13,7 +13,7 @@ color 2F
 @echo            =============================================================
 @echo. 
 @echo Si es lo que desea Hacer Presione cualquier Tecla de lo Contrario presione Cltr + C
-pause>null
+pause >null
 if NOT EXIST symfony goto nosymfony
 
 SET _PROYECTO=%1
