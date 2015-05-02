@@ -1,11 +1,35 @@
 #!/bin/bash
 
+#  ## Script Realizado por Carlos A Salazar <csalazart33@gmail.com>
+#  ## Si deseas Contribuir puedes hacer un FORK y contribuir al respecto
+#  ## En Github https://github.com/csalazart/SF2ShortsCommands 
+
+echo "=======> Script Batch por CAST<csalazart33@gmail.com> <======="
+echo ""
+echo  "============================================================="
+echo  "=                                                           ="
+echo  "=              Iniciando Proyecto Symfony 2.x               ="
+echo  "=                                                           ="
+echo  "============================================================="
+
 echo "Ejecutando instalación..."
 echo "symfony $@"
 php symfony $@
 
-echo "Instalación Finalizada Pasando Shorts Cuts.."
-cp console $1
-chmod +x $1/console
-echo "Permisos Actualizados para Ejecución"
+if [ "$1" == "demo" ]; then
+	echo "Has entrado en la instalacion demo de Symfony en directorio symfony_demo"
+	echo "Copiando los Archivos console en symfony_demo"
+	cp console symfony_demo/
+    chmod +x symfony_demo/console
+	echo "Ejecuta << console server:run >> para Empezar la demo en  http//localhost:8000 Empieza a aprender Symfony"
+	cd symfony_demo
+else
+	echo "Instalación Concluida Accesando al Directorio del proyecto $1"
+	echo "Copiando Archivo de console ShortCuts en $1"
+	cp console $1/
+	chmod +x $1/console
+	echo "Entrando al Directorio $1 "
+	cd $1/	
+fi
+
 
