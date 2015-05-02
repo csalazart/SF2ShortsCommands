@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "Ejecutando instalación..."
+echo "symfony $@"
+php symfony $@
+
+echo "Instalación Finalizada Pasando Shorts Cuts.."
+cp console $1
+chmod +x $1/console
+echo "Permisos Actualizados para Ejecución"
+
