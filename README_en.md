@@ -31,3 +31,5 @@ I have added two additional files that allow the installation of symfony **run t
 
 Must add the installer as described on page [symfony.com] (http://symfony.com/download) and then run the system for your installSF file.
 
+
+by: Carlos A Salazar <csalazart>
