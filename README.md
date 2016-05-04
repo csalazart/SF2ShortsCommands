@@ -29,4 +29,11 @@ He agregado 2 archivos adicionales que permiten realizar la instalación de symf
 
 ### Agregando instalador de Symfony    
 Deben agregar el instalador como se describe en la página de [symfony.com](http://symfony.com/download) y luego ejecutar el archivo correspondiente a su sistema installSF. 
+Utilizar el Instalador simplemente escribir: 
+**Instalar symfony 3     
+	  installSF NombreProyecto
+**Instalar Symfony 2.8
+      installSF NombreProyecto 2.8
+	  
+Donde el nombreProyecto puede ser demo para instalar la versión demo o bien el nombre de tu proyecto sf 
 
