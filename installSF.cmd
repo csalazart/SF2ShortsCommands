@@ -46,6 +46,10 @@ color 07
 pause
 
 :nosymfony
+if EXIST symfony goto fin2
 @echo El Archivo de instalacion de symfony no se encuentra debes descargarlo desde la web de http://Symfony.com/donwloads
 @echo Si lo has descargado pero no esta en el mismo directorio que este archivo debes copiarlo o declararlo como global en el PATH de windows
 color 07
+
+:fin2
+@echo. 
