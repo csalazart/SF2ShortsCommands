@@ -28,13 +28,15 @@ Console Acepta todos los comandos y sus respectivos parametros de comandos
 He agregado 2 archivos adicionales que permiten realizar la instalación de symfony **ejecutar el instalador** y luego Copiar los archivos console y console.bat dependiendo del sistema operativo claro.. en la carpeta de instalación.
 
 ### Agregando instalador de Symfony    
-Deben agregar el instalador como se describe en la página de [symfony.com](http://symfony.com/download) y luego ejecutar el archivo correspondiente a su sistema installSF. 
-Utilizar el Instalador simplemente escribir: 
-**Instalar symfony 3
+Deben agregar el instalador como se describe en la página de [symfony.com](http://symfony.com/download) y luego ejecutar el archivo correspondiente a su sistema installSF.  
 
-	  installSF NombreProyecto 
+Utilizar el Instalador simplemente escribir: 
+**Instalar symfony 3 
+      
+      installSF NombreProyecto  
 	  
-**Instalar Symfony 2.8
+**Instalar Symfony 2.8 
+
       installSF NombreProyecto 2.8
 	  
 Donde el nombreProyecto puede ser demo para instalar la versión demo o bien el nombre de tu proyecto sf 
