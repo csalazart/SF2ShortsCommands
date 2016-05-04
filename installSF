@@ -14,7 +14,7 @@ echo  "============================================================="
 
 echo "Ejecutando instalación..."
 echo "symfony $@"
-php symfony $@
+php symfony new $@
 
 if [ "$1" == "demo" ]; then
 	echo "Has entrado en la instalacion demo de Symfony en directorio symfony_demo"
