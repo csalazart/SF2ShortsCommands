@@ -31,6 +31,7 @@ He agregado 2 archivos adicionales que permiten realizar la instalación de symf
 Deben agregar el instalador como se describe en la página de [symfony.com](http://symfony.com/download) y luego ejecutar el archivo correspondiente a su sistema installSF.  
 
 Utilizar el Instalador simplemente escribir: 
+
  **Instalar symfony 3** 
       
       installSF NombreProyecto  
