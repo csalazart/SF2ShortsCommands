@@ -12,13 +12,19 @@ color 2F
 @echo            =                                                           =
 @echo            =============================================================
 @echo. 
+@echo Para instalar symfony 3 escriba:
+@echo installSF nombreProyecto
+@echo para instalar symfony 2.8 escriba:
+@echo installSF nombreProyecto 2.8
+@echo Si desea instalar el demo escriba "demo" como nombre de proyecto o descarguelo de https://github.com/symfony/symfony-demo
 @echo Si es lo que desea Hacer Presione cualquier Tecla de lo Contrario presione Cltr + C
 pause >null
 if NOT EXIST symfony goto nosymfony
 
 SET _PROYECTO=%1
 :: @echo php symfony %*
-@php symfony %* 
+@php symfony new %* 
+ 
 
 if %_PROYECTO%==demo goto demo
 set mensaje=
