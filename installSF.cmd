@@ -20,13 +20,15 @@ color 2F
 @echo.
 @echo .....Para iniciar un proyecto symfony 2.8 escribe: "installSF nombreProyecto 2.8"
 @echo.
+@echo .....Para Iniciar el proyecto demo symfony 2  escribe "installSF demo" Sin git 
+@echo.
 @echo .....Para Iniciar el proyecto demo  y clonar desde github escribe "installSF demogit" Necesitas git instalado o descarguelo de https://github.com/symfony/symfony-demo
 @echo.
 @echo ..Si deseas continuar con el Menu Interactivo Presione cualquier Tecla de lo Contrario presione Cltr + C
 if NOT EXIST symfony goto nosymfony
-@echo Actualizando Dependencias de symfony
+@echo Actualizando Dependencias de symfony...
+@echo Espere un Momento por favor antes de continuar
 @php symfony self-update
-pause.
 
 IF NOT %1.==. GOTO generar
 
@@ -38,7 +40,8 @@ IF NOT %1.==. GOTO generar
 @echo            =                                                           =
 @echo            =   1. Iniciar Proyecto SF 2.8.X LST                        =
 @echo            =   2. Iniciar Proyecto SF 3.X Last Release                 =
-@echo            =   3. Iniciar Proyecto SF 3.X Demo Clone (Necesita Git)    =
+@echo            =   3. Iniciar Proyecto SF 2.8 Demo                         =
+@echo            =   4. Iniciar Proyecto SF 2.8 Demo Clone (Necesita Git)    =
 @echo            =   q. Salir                                                =
 @echo            =                                                           =
 @echo            =============================================================
@@ -46,7 +49,8 @@ IF NOT %1.==. GOTO generar
 SET /p _opcion=
 if %_opcion% ==1 goto capture
 if %_opcion% ==2 goto capture
-if %_opcion% ==3 goto demogit
+if %_opcion% ==3 goto demo
+if %_opcion% ==4 goto demogit
 if %_opcion% ==q goto fin2
 
 :capture
@@ -60,13 +64,17 @@ if %_opcion% ==1 goto sf28
 if %_opcion% ==2 goto sf3 
 
 :generar
+@echo ..::Ejecucion de comando Directo sin Menu::..
+@set mensaje=Ejecuta el comando "console server:run" para Ejecutar el servidor en http://localhost:8000
+if %1 == demo goto demo
 if %1 == demogit goto demogit
 SET _PROYECTO=%1
 if %2.==. goto sf3
+REM goto sf3
 REM genera proyecto 2.8 por entrada directa sin Menu 
-@php symfony new %_PROYECTO%
-@set ver=
-goto fin
+REM @php symfony new %_PROYECTO%
+REM @set ver=
+REM goto fin
 
 :sf28
 REM ::if %_PROYECTO%==demo goto demo
@@ -80,13 +88,29 @@ REM ::if %_PROYECTO%==demo goto demo
 @set ver=3
 goto fin
 
+:demo
+@SET _PROYECTO=symfony2_demo
+@echo Has Seleccionado Crear el Proyecto DEMO de symfony 2
+@echo Generando symfony para %_PROYECTO%
+@php symfony demo
+@echo.
+@echo ..::Debe Ejecutar el comando "composer install" o "composer update" para completar la instalacion
+@echo debe tener instalado composer::..
+@echo.
+@set mensaje=Ejecuta el comando "console server:run" para Ejecutar el servidor en http://localhost:8000
+@set ver=
+goto fin
+
 :demogit
-@SET _PROYECTO=symfony-demo
+@SET _PROYECTO=symfony2-demo
+@echo Has Seleccionado Clonar del repositorio el DEMO de symfony 2
 @echo Generando symfony para %_PROYECTO% 
 @git clone https://github.com/symfony/symfony-demo.git
-@echo Has Seleccionado Clonar del repositorio el DEMO de symfony 3
-@set mensaje=Ejecuta el comando "console server:run" para Ejecutar la demo y empezar en http://localhost:8000 Empieza a aprender Symfony
-@set ver=3
+@echo.
+@echo ..::Debe Ejecutar el comando "composer install" o "composer update" para completar la instalacion
+@echo debe tener instalado composer::..
+@echo.
+@set ver=
 goto fin
 
 :fin
@@ -100,7 +124,6 @@ pause
 goto fin2
 
 :nosymfony
-if EXIST symfony goto fin2
 @echo El Archivo de instalacion de symfony no se encuentra debes descargarlo desde la web de http://Symfony.com/donwloads
 @echo Si lo has descargado pero no esta en el mismo directorio que este archivo debes copiarlo o declararlo como global en el PATH de windows
 color 07
