@@ -102,7 +102,7 @@ goto fin
 goto fin
 
 :demogit
-@SET _PROYECTO=symfony2-demo
+@SET _PROYECTO=symfony-demo
 @echo Has Seleccionado Clonar del repositorio el DEMO de symfony 2
 @echo Generando symfony para %_PROYECTO% 
 @git clone https://github.com/symfony/symfony-demo.git
