@@ -22,15 +22,21 @@ function fin () {
 	chmod +x "$_PROYECTO/console"
 	cd "$_PROYECTO/"
 	echo -e "Entrando al Directorio $_PROYECTO\n"
-	fin2
+	#fin2
+	echo -e "Finalizado Instalación de Symfony\n"
+	echo -e "..::Si tienes Comentarios Por Favor Escribelos al email csalazart33@gmail.com::..\n"
+	echo -e "..::Vista https://github.com/csalazart/SF2ShortsCommands::..\n"
+	echo -e "..::Gracias por utilizar esta Herramienta::..\n"
+	echo ""
+	exit
 }
 
 function ejecute () {
 	##:sf28 & sf3
-	if ["$1" == 2] then
+	if ["$1" == 2] then ## Ejecuta Synfony 2.8 
 		php symfony new "$_PROYECTO" 2.8
 		ver=""
-	else
+	else ##Ejecuta Symfony 3
 		php symfony new "$_PROYECTO"
 		ver="3" 
 	fi	
@@ -183,32 +189,6 @@ else
 		    ;;
 		esac 
 fi
-
-
-
-function generar () {
-	echo "..::Ejecucion de comando Directo sin Menu::.."
-	mensaje = "Ejecuta el comando \"console server:run\" para Ejecutar el servidor en http://localhost:8000"
-	#if %1 == demo goto demo
-	#if %1 == demogit goto demogit
-	_PROYECTO=$1
-	#if %2.==. goto sf3
-}
-
-# function sf28() {
-# 	##:sf28
-# 	php symfony new $_PROYECTO 2.8
-# 	ver=""
-# 	goto fin
-# }
-
-# function sf3 () {
-# 	# :sf3
-# 	@php symfony new %_PROYECTO%
-# 	@set ver=3
-# 	goto fin
-# }
-
 
 
 # echo "Ejecutando instalación..."
