@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "ejecutando..."
+echo "console $@"
+php bin/console $@
+
+echo "Actualizando Permisos.."
+chmod 775 * -Rf
+chmod 777 var/cache -Rf
+chmod 777 var/logs -Rf
+
+
