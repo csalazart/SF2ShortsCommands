@@ -4,32 +4,226 @@
 #  ## Si deseas Contribuir puedes hacer un FORK y contribuir al respecto
 #  ## En Github https://github.com/csalazart/SF2ShortsCommands 
 
-echo "=======> Script Batch por CAST<csalazart33@gmail.com> <======="
+echo "      =======:::::..  Script Batch por CAST<csalazart33@gmail.com>  ..:::::=======   "
 echo ""
-echo  "============================================================="
-echo  "=                                                           ="
-echo  "=              Iniciando Proyecto Symfony 2.x               ="
-echo  "=                                                           ="
-echo  "============================================================="
+echo "                Versión 1.2  https://github.com/csalazart/SF2ShortsCommands     "
+echo ""
+echo "          ============================================================="
+echo "          =                                                           ="
+echo "          =              Iniciando Proyecto Symfony                   ="
+echo "          =                                                           ="
+echo "          ============================================================="
+echo "" 
 
-echo "Ejecutando instalación..."
-echo "symfony $@"
-php symfony new $@
+echo -e "Puedes Utiliar este Script de manera Directa Sin el Menu:\n"
+echo -e ".....Para iniciar un proyecto symfony 3 escribe: \"installSF nombreProyecto\"\n"
+echo -e "\n"
+echo -e ".....Para iniciar un proyecto symfony 2.8 escribe: \"installSF nombreProyecto 2.8\"\n"
+echo -e "\n"
+echo -e ".....Para Iniciar el proyecto demo symfony 2  escribe \"installSF demo\" Sin git \n"
+echo -e "\n"
+echo -e ".....Para Iniciar el proyecto demo  y clonar desde github escribe \"installSF demogit\"\n"
+echo -e ".....Necesitas git instalado o descarguelo de https://github.com/symfony/symfony-demo\n"
+echo -e "\n"
+echo -e "..Si deseas continuar con el Menu Interactivo Presione cualquier Tecla de lo Contrario presione Cltr + C\n"
 
-if [ "$1" == "demo" ]; then
-	echo "Has entrado en la instalacion demo de Symfony en directorio symfony_demo"
-	echo "Copiando los Archivos console en symfony_demo"
-	cp console symfony_demo/
-    chmod +x symfony_demo/console
-	echo "Ejecuta << console server:run >> para Empezar la demo en  http//localhost:8000 Empieza a aprender Symfony"
-	cd symfony_demo
-else
-	echo "Instalación Concluida Accesando al Directorio del proyecto $1"
-	echo "Copiando Archivo de console ShortCuts en $1"
-	cp console $1/
-	chmod +x $1/console
-	echo "Entrando al Directorio $1 "
-	cd $1/	
+mensaje =""
+ver = ""
+## if NOT EXIST symfony goto nosymfony
+echo -n "Actualizando Dependencias de symfony..."
+echo -n "Espere un Momento por favor antes de continuar.."
+php symfony self-update
+
+##Si vienen Vacio el Primer Parametro
+if [ "$1" == ""]  then
+##menu
+echo -n ""
+echo -n "           ============================================================="
+echo -n "           =                   Que desea Hacer ?                       ="
+echo -n "           =                      Opciones                             ="
+echo -n "           =                                                           ="
+echo -n "           =   1. Iniciar Proyecto SF 2.8.X LST                        ="
+echo -n "           =   2. Iniciar Proyecto SF 3.X Last Release                 ="
+echo -n "           =   3. Iniciar Proyecto SF 2.8 Demo                         ="
+echo -n "           =   4. Iniciar Proyecto SF 2.8 Demo Clone (Necesita Git)    ="
+echo -n "           =   q. Salir                                                ="
+echo -n "           =                                                           ="
+echo -n "           ============================================================="
+echo -n "" 
+echo -n "Opcion: "
+read opt
+
+# if %_opcion% ==1 goto capture
+# if %_opcion% ==2 goto capture
+# if %_opcion% ==3 goto demo
+# if %_opcion% ==4 goto demogit
+# if %_opcion% ==q goto fin2
+
+	##Case Clause para Menu
+	case opt in
+	  1) #sf2.8
+	    echo -n "opcion 1"
+	    echo -n "Ingresa el Nombre del Proyecto y presiona enter"
+	    read _PROYECTO
+		echo -n "Generando symfony para $_PROYECTO" 
+		echo -n "..::Esto puede tardar un poco::.."
+		mensaje = "Ejecuta el comando \"console server:run\" para Ejecutar el servidor en http://localhost:8000\n"
+		ejecute 2
+	    ;&
+
+	  2) # sf3
+	    echo -n "opcion 2"
+	    echo -n "Ingresa el Nombre del Proyecto y presiona enter"
+	    read _PROYECTO
+		echo -n "Generando symfony para $_PROYECTO" 
+		echo -n "..::Esto puede tardar un poco::.."
+		mensaje = "Ejecuta el comando \"console server:run\" para Ejecutar el servidor en http://localhost:8000\n"
+		ejecute 3
+	    ;&
+	  3) #DEMO
+		echo "opcion 3"
+		demo
+		;&
+	  4) #Demo Git clone
+	     echo "Ocpion 4"
+	     demogit
+		;&
+	  q) #Salir
+		  echo "Opcion q"
+		  exit
+	    ;&
+	  *) #salir
+	    echo "Opcion q Salir"
+	    exit
+	    ;;
+	esac
+
+else 
+  ## Si el parametro de entrada no viene Vacio y hay mas de uno
+  echo -e "..::Ejecucion de comando Directo sin Menu::..\n"
+  mensaje = "Ejecuta el comando \"console server:run\" para Ejecutar el servidor en http://localhost:8000\n"
+
+	case $1 in 
+		demo)
+			echo "Por Comando demo"
+			demo
+			;&
+		demogit)
+			echo "Por Comando demogit"
+			 demogit
+			;&	
+		  *)
+			if ["$2"==""] ; then
+				ejecute 2 ##Ejecute symfony2
+			else 
+				ejecute 3	## Ejecute symfony 3
+			fi
+		    ;;
+		esac 
+
+
 fi
 
+function demo (){
+	#:demo
+	_PROYECTO="symfony2_demo"
+	echo -e "Has Seleccionado Crear el Proyecto DEMO de symfony 2\n"
+	echo -e "Generando symfony para $_PROYECTO\n"
+	php symfony demo
+	echo -e "\n"
+	echo -e "..::Debe Ejecutar el comando \"composer install\" o \"composer update\" \npara completar la instalacion debe tener instalado composer::.."
+	echo -e "\n"
+ 	mensaje="Ejecuta el comando \"console server:run\" para Ejecutar el servidor en http://localhost:8000\n"
+	ver="" 
+	fin
+}
 
+function demogit () {
+# :demogit
+	_PROYECTO="symfony-demo"
+	echo -e "Has Seleccionado Clonar del repositorio el DEMO de symfony 2\n"
+	echo -e "Generando symfony para $_PROYECTO \n"
+	git clone https://github.com/symfony/symfony-demo.git symfony-demo
+	echo ""
+	echo -e "..::Debe Ejecutar el comando \"composer install\" o \"composer update\" \npara completar la instalacion debe tener instalado composer::..\n"
+	echo ""
+	ver=""
+	fin
+}
+
+function generar () {
+	echo "..::Ejecucion de comando Directo sin Menu::.."
+	mensaje = "Ejecuta el comando \"console server:run\" para Ejecutar el servidor en http://localhost:8000"
+	#if %1 == demo goto demo
+	#if %1 == demogit goto demogit
+	_PROYECTO=$1
+	#if %2.==. goto sf3
+}
+
+# function sf28() {
+# 	##:sf28
+# 	php symfony new $_PROYECTO 2.8
+# 	ver=""
+# 	goto fin
+# }
+
+# function sf3 () {
+# 	# :sf3
+# 	@php symfony new %_PROYECTO%
+# 	@set ver=3
+# 	goto fin
+# }
+
+function ejecute () {
+	##:sf28 & sf3
+	if ["$1" == 2] then
+		php symfony new "$_PROYECTO" 2.8
+		ver=""
+	else
+		php symfony new "$_PROYECTO"
+		ver="3" 
+	fi	
+	fin
+}
+
+function fin () {
+	##:fin
+    echo -e "$mensaje"
+	echo -e "Instalacion Concluida Ahora Copiando Shorts Cuts a Directorio  $_PROYECTO\n "
+	cp "console$ver" "$_PROYECTO/console"
+	chmod +x "$_PROYECTO/console"
+	cd "$_PROYECTO/"
+	echo -e "Entrando al Directorio $_PROYECTO\n"
+	fin2
+}
+
+function fin2 (){
+	##:fin2
+	echo -e "Finalizado Instalación de Symfony\n"
+	echo -e "..::Si tienes Comentarios Por Favor Escribelos al email csalazart33@gmail.com::..\n"
+	echo -e "..::Vista https://github.com/csalazart/SF2ShortsCommands::..\n"
+	echo -e "..::Gracias por utilizar esta Herramienta::..\n"
+	echo ""
+	exit
+}
+
+# echo "Ejecutando instalación..."
+# echo "symfony $@"
+
+# if [ "$1" == "demo" ]; then
+# 	php symfony $@
+# 	echo "Has entrado en la instalacion demo de Symfony en directorio symfony_demo"
+# 	echo "Copiando los Archivos console en symfony_demo"
+# 	cp console symfony_demo/
+#     chmod +x symfony_demo/console
+# 	echo "Ejecuta << console server:run >> para Empezar la demo en  http//localhost:8000 Empieza a aprender Symfony"
+# 	cd symfony_demo
+# else
+# 	php symfony new $@
+# 	echo "Instalación Concluida Accesando al Directorio del proyecto $1"
+# 	echo "Copiando Archivo de console ShortCuts en $1"
+# 	cp console $1/
+# 	chmod +x $1/console
+# 	echo "Entrando al Directorio $1 "
+# 	cd $1/	
+# fi
