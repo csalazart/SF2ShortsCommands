@@ -3,7 +3,7 @@
 #  ## Script Realizado por Carlos A Salazar <csalazart33@gmail.com>
 #  ## Si deseas Contribuir puedes hacer un FORK y contribuir al respecto
 #  ## En Github https://github.com/csalazart/SF2ShortsCommands 
-##Car gando Funciones 
+##Cargando Funciones previamente
 function fin2 (){
 	##:fin2
 	echo -e "Finalizado Instalación de Symfony\n"
