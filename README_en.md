@@ -22,14 +22,48 @@ Simple, **copy files console and / or console.bat in the root folder symfony pro
 
 Console supports all the commands and their command parameters
 
-##Updating to the current Installing Symfony
+## Updating to the current Installing Symfony
 
-I have added two additional files that allow the installation of symfony **run the installer** and then copy the files and console.bat console depending on the operating system of course, in the installation folder.
+Cluster 2 additional files that allow the installation of Symfony **run the installer** and then copy the files from the console and console.cmd depending on the operating system and version of Symfony in the installation folder.
 
+## Version 1.2 
+### Adding installer Symfony and practical script for windows and linux OS console command 
 
-### Adding installer Symfony
+In version 1.2 has been added installer symofony from the web [symfony.com] (http://symfony.com/download) to make easy the work of installing, this is updated each time the script is launched. You cand download the script your self if you want.
 
-Must add the installer as described on page [symfony.com] (http://symfony.com/download) and then run the system for your installSF file.
+### How to use the new Script Shell file
+Exist 2 way to launch the script, just no parameters, with is show a menu shell to help you to create and guide on the instalations and initialize the folders of your project; and the direct way script, where you can put parameters and create directy your project without menu display.
 
+**Menu assistance way:** 
+Starts assisted installation menu that displays a menu on the system console 
+    
+    installSF
 
-by: Carlos A Salazar <csalazart>
+### Installer with commands options:
+Starts instalation or initialize the projects folders without show helped menu shell 
+
+**Create new symfony 3.x Project**:
+      
+      installSF ProjectName  
+
+**Create new Symfony 2.8 Project** 
+
+      installSF PrjectName 2.8 
+
+**Install Symfony 2.8 Demo**:
+
+     installSF demo
+
+**Install Symfony 2.8 demo from git** (this way need installed git):
+
+     installSF demogit
+
+Where **ProjectName** is the name and folder where the symfony installation will take place.
+
+***
+
+### Source: [https://github.com/csalazart/SF2ShortsCommands](https://github.com/csalazart/SF2ShortsCommands)
+
+### Author:
+- Carlos A Salazar <csalazart>
+- "[GitHub]"(https://github.com/csalazart)
