@@ -126,7 +126,6 @@ if [ -z "$1" ] ; then
 	echo -e "           ============================================================="
 	echo -e ""
 	read -n 1 -p "Opcion: " opt
-	echo "Opcion seleccionada : $opt"
 
 	##Case Clause para Menu
 	case "$opt" in
