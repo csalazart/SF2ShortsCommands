@@ -28,7 +28,7 @@ Console Acepta todos los comandos y sus respectivos parametros de comandos
 
 He agregado 2 archivos adicionales que permiten realizar la instalación de symfony **ejecutar el instalador** y luego Copiar los archivos console y console.cmd dependiendo del sistema operativo y versión de symfony, en la carpeta de instalación.
 
-## Versión 1.2
+## Versión 1.2 [Descargar](https://github.com/csalazart/SF2ShortsCommands/releases/tag/1.2)
 ### Agregando instalador de Symfony "installSF" Para Windows y Linux
 En la versión 1.2 se ha agregado el instalador de symofony de la web [symfony.com](http://symfony.com/download) para facilitar el trabajo, este se actualiza cada vez que se lanza el script.  
 
