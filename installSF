@@ -101,12 +101,13 @@ echo -e ".....Para Iniciar el proyecto demo symfony 2  escribe \"installSF demo\
 echo -e ".....Para Iniciar el proyecto demo  y clonar desde github escribe \"installSF demogit\"\n"
 echo -e ".....Necesitas git instalado o descarguelo de https://github.com/symfony/symfony-demo\n"
 echo -e "..Si deseas continuar con el Menu Interactivo Presione cualquier Tecla de lo Contrario presione Cltr + C\n"
-pause "Presione enter para Continuar"
+pause "Presione enter para Continuar.."
 mensaje=''
 ver=''
 ## if NOT EXIST symfony goto nosymfony
-echo -n "Actualizando Dependencias de symfony...\n"
-echo -n "Espere un Momento por favor antes de continuar..\n"
+echo -n "Actualizando Dependencias de symfony..."
+echo -n "Espere un Momento por favor antes de continuar.."
+echo -n ""
 php symfony self-update
 
 ##Si vienen Vacio el Primer Parametro
@@ -130,7 +131,7 @@ if [ -z "$1" ] ; then
 	##Case Clause para Menu
 	case "$opt" in
 	  1 ) #sf2.8
-	    echo -n "Ingresa el Nombre del Proyecto y presiona enter"
+	    echo -n "\nIngresa el Nombre del Proyecto y presiona enter"
 	    read _PROYECTO
 		echo -n "Generando symfony para $_PROYECTO" 
 		echo -n "..::Esto puede tardar un poco::.."
@@ -138,7 +139,7 @@ if [ -z "$1" ] ; then
 		ejecute 2
 	    ;;
 	  2 ) # sf3
-	    echo -n "Ingresa el Nombre del Proyecto y presiona enter"
+	    echo -n "\nIngresa el Nombre del Proyecto y presiona enter"
 	    read _PROYECTO
 		echo -n "Generando symfony para $_PROYECTO" 
 		echo -n "..::Esto puede tardar un poco::.."
@@ -146,13 +147,15 @@ if [ -z "$1" ] ; then
 		ejecute 3
 	    ;;
 	  3 ) #DEMO
+		 echo -e "\n"
 		demo
 	    ;;
 	  4 ) #Demo Git clone
+		 echo -e "\n"
 	     demogit
 	    ;;
 	   q ) #Salir
-		  echo -n "Exit"
+		  echo -n "\n Exit"
 		  fin2
 	##    ;;
 	## *) #salir
