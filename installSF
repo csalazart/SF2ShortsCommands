@@ -105,8 +105,8 @@ pause "Presione enter para Continuar"
 mensaje=''
 ver=''
 ## if NOT EXIST symfony goto nosymfony
-echo -n "Actualizando Dependencias de symfony..."
-echo -n "Espere un Momento por favor antes de continuar.."
+echo -n "Actualizando Dependencias de symfony...\n"
+echo -n "Espere un Momento por favor antes de continuar..\n"
 php symfony self-update
 
 ##Si vienen Vacio el Primer Parametro
