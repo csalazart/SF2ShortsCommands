@@ -10,20 +10,21 @@ function fin2 (){
 	echo -e "..::Si tienes Comentarios Por Favor Escribelos al email csalazart33@gmail.com::..\n"
 	echo -e "..::Vista https://github.com/csalazart/SF2ShortsCommands::..\n"
 	echo -e "..::Gracias por utilizar esta Herramienta::..\n"
-	echo ""
+	echo ''
 	exit
 }
 
 function fin () {
 	##:fin
-    echo -e "$mensaje"
+    	echo -e "$mensaje"
 	echo -e "Instalacion Concluida Ahora Copiando Shorts Cuts a Directorio  $_PROYECTO\n "
 	cp "console$ver" "$_PROYECTO/console"
 	chmod +x "$_PROYECTO/console"
-	cd "$_PROYECTO/"
-	echo -e "Entrando al Directorio $_PROYECTO\n"
+	#alias proj="cd $_PROYECTO/"
+	#echo -e "Entrando al Directorio $_PROYECTO\n"
+	#source proj
 	#fin2
-	echo -e "Finalizado Instalación de Symfony\n"
+	echo -e "Finalizado Instalacion de Symfony"
 	echo -e "..::Si tienes Comentarios Por Favor Escribelos al email csalazart33@gmail.com::..\n"
 	echo -e "..::Vista https://github.com/csalazart/SF2ShortsCommands::..\n"
 	echo -e "..::Gracias por utilizar esta Herramienta::..\n"
@@ -33,27 +34,32 @@ function fin () {
 
 function ejecute () {
 	##:sf28 & sf3
-	if ["$1" == 2] then ## Ejecuta Synfony 2.8 
+	## Ejecuta Synfony 2.8
+	if [ "$1" = 2 ] ; then  
 		php symfony new "$_PROYECTO" 2.8
-		ver=""
-	else ##Ejecuta Symfony 3
+		ver=''
+		##Ejecuta Symfony 3
+	  else
 		php symfony new "$_PROYECTO"
-		ver="3" 
-	fi	
+		ver='3' 
+	fi
+	echo -e "Instalación Concluida \n"
+	read -n 1 -p  "Continuar..."	
 	fin
 }
 
 function demo (){
 	#:demo
-	_PROYECTO="symfony2_demo"
+	_PROYECTO="symfony_demo"
 	echo -e "Has Seleccionado Crear el Proyecto DEMO de symfony 2\n"
 	echo -e "Generando symfony para $_PROYECTO\n"
 	php symfony demo
+	read -n 1 -p "Continuar..."
 	echo -e "\n"
 	echo -e "..::Debe Ejecutar el comando \"composer install\" o \"composer update\" \npara completar la instalacion debe tener instalado composer::.."
 	echo -e "\n"
  	mensaje="Ejecuta el comando \"console server:run\" para Ejecutar el servidor en http://localhost:8000\n"
-	ver="" 
+	ver=''
 	fin
 }
 
@@ -63,13 +69,18 @@ function demogit () {
 	echo -e "Has Seleccionado Clonar del repositorio el DEMO de symfony 2\n"
 	echo -e "Generando symfony para $_PROYECTO \n"
 	git clone https://github.com/symfony/symfony-demo.git symfony-demo
-	echo ""
+	read -n 1 -p "Continuar..."
 	echo -e "..::Debe Ejecutar el comando \"composer install\" o \"composer update\" \npara completar la instalacion debe tener instalado composer::..\n"
-	echo ""
-	ver=""
+	ver=''
 	fin
 }
-#
+
+#Pause
+function pause(){
+   read -n 1 -p "$*"
+}
+
+clear 
 ## Ejecutando
 #
 echo "      =======:::::..  Script Batch por CAST<csalazart33@gmail.com>  ..:::::=======   "
@@ -90,42 +101,43 @@ echo -e ".....Para Iniciar el proyecto demo symfony 2  escribe \"installSF demo\
 echo -e ".....Para Iniciar el proyecto demo  y clonar desde github escribe \"installSF demogit\"\n"
 echo -e ".....Necesitas git instalado o descarguelo de https://github.com/symfony/symfony-demo\n"
 echo -e "..Si deseas continuar con el Menu Interactivo Presione cualquier Tecla de lo Contrario presione Cltr + C\n"
-
-mensaje=""
-ver=""
+pause "Presione enter para Continuar"
+mensaje=''
+ver=''
 ## if NOT EXIST symfony goto nosymfony
 echo -n "Actualizando Dependencias de symfony..."
 echo -n "Espere un Momento por favor antes de continuar.."
 php symfony self-update
 
 ##Si vienen Vacio el Primer Parametro
-if [ "$1" == ""]  then
-##menu
-echo -n ""
-echo -n "           ============================================================="
-echo -n "           =                   Que desea Hacer ?                       ="
-echo -n "           =                      Opciones                             ="
-echo -n "           =                                                           ="
-echo -n "           =   1. Iniciar Proyecto SF 2.8.X LST                        ="
-echo -n "           =   2. Iniciar Proyecto SF 3.X Last Release                 ="
-echo -n "           =   3. Iniciar Proyecto SF 2.8 Demo                         ="
-echo -n "           =   4. Iniciar Proyecto SF 2.8 Demo Clone (Necesita Git)    ="
-echo -n "           =   q. Salir                                                ="
-echo -n "           =                                                           ="
-echo -n "           ============================================================="
-echo -n "" 
-echo -n "Opcion: "
-read opt
 
-# if %_opcion% ==1 goto capture
-# if %_opcion% ==2 goto capture
-# if %_opcion% ==3 goto demo
-# if %_opcion% ==4 goto demogit
-# if %_opcion% ==q goto fin2
+if [ -z "$1" ] ; then
+##menu
+	echo -e ""
+	echo -e "           ============================================================="
+	echo -e "           =                   Que desea Hacer ?                       ="
+	echo -e "           =                      Opciones                             ="
+	echo -e "           =                                                           ="
+	echo -e "           =   1. Iniciar Proyecto SF 2.8.X LST                        ="
+	echo -e "           =   2. Iniciar Proyecto SF 3.X Last Release                 ="
+	echo -e "           =   3. Iniciar Proyecto SF 2.8 Demo                         ="
+	echo -e "           =   4. Iniciar Proyecto SF 2.8 Demo Clone (Necesita Git)    ="
+	echo -e "           =   q. Salir                                                ="
+	echo -e "           =                                                           ="
+	echo -e "           ============================================================="
+	echo -e "" 
+	#echo -e "Opcion: "
+	read -n 1 -p "Opcion: " opt
+	echo "Opcion seleccionada : $opt"
+	# if %_opcion% ==1 goto capture
+	# if %_opcion% ==2 goto capture
+	# if %_opcion% ==3 goto demo
+	# if %_opcion% ==4 goto demogit
+	# if %_opcion% ==q goto fin2
 
 	##Case Clause para Menu
-	case opt in
-	  1) #sf2.8
+	case "$opt" in
+	  1 ) #sf2.8
 	    echo -n "opcion 1"
 	    echo -n "Ingresa el Nombre del Proyecto y presiona enter"
 	    read _PROYECTO
@@ -133,9 +145,8 @@ read opt
 		echo -n "..::Esto puede tardar un poco::.."
 		mensaje = "Ejecuta el comando \"console server:run\" para Ejecutar el servidor en http://localhost:8000\n"
 		ejecute 2
-	    ;&
-
-	  2) # sf3
+	    ;;
+	  2 ) # sf3
 	    echo -n "opcion 2"
 	    echo -n "Ingresa el Nombre del Proyecto y presiona enter"
 	    read _PROYECTO
@@ -143,44 +154,45 @@ read opt
 		echo -n "..::Esto puede tardar un poco::.."
 		mensaje = "Ejecuta el comando \"console server:run\" para Ejecutar el servidor en http://localhost:8000\n"
 		ejecute 3
-	    ;&
-	  3) #DEMO
+	    ;;
+	  3 ) #DEMO
 		echo "opcion 3"
 		demo
-		;&
-	  4) #Demo Git clone
+	    ;;
+	  4 ) #Demo Git clone
 	     echo "Ocpion 4"
 	     demogit
-		;&
-	  q) #Salir
+	    ;;
+	   q ) #Salir
 		  echo "Opcion q"
 		  exit
-	    ;&
-	  *) #salir
-	    echo "Opcion q Salir"
-	    exit
+	##    ;;
+	## *) #salir
+	##    echo "Opcion cualquiera Salir"
+	##    exit
 	    ;;
 	esac
 
-else 
+else
   ## Si el parametro de entrada no viene Vacio y hay mas de uno
   echo -e "..::Ejecucion de comando Directo sin Menu::..\n"
-  mensaje = "Ejecuta el comando \"console server:run\" para Ejecutar el servidor en http://localhost:8000\n"
+  mensaje="Ejecuta el comando \"console server:run\" para Ejecutar el servidor en http://localhost:8000\n"
 
-	case $1 in 
-		demo)
+	case "$1" in 
+		demo )
 			echo "Por Comando demo"
 			demo
-			;&
-		demogit)
+			;;
+		demogit )
 			echo "Por Comando demogit"
 			 demogit
-			;&	
+			;;	
 		  *)
-			if ["$2"==""] ; then
-				ejecute 2 ##Ejecute symfony2
+			_PROYECTO="$1"
+			if [ -z "$2" ] ; then
+				ejecute 3 ##Ejecute symfony3
 			else 
-				ejecute 3	## Ejecute symfony 3
+				ejecute 2	## Ejecute symfony 2
 			fi
 		    ;;
 		esac 
