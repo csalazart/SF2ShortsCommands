@@ -6,7 +6,7 @@
 ##Cargando Funciones previamente
 function fin2 (){
 	##:fin2
-	echo -e "Finalizado Instalación de Symfony\n"
+	echo -e "Finalizado Script Instalación de Symfony\n"
 	echo -e "..::Si tienes Comentarios Por Favor Escribelos al email csalazart33@gmail.com::..\n"
 	echo -e "..::Vista https://github.com/csalazart/SF2ShortsCommands::..\n"
 	echo -e "..::Gracias por utilizar esta Herramienta::..\n"
@@ -130,7 +130,6 @@ if [ -z "$1" ] ; then
 	##Case Clause para Menu
 	case "$opt" in
 	  1 ) #sf2.8
-	    echo -n "opcion 1"
 	    echo -n "Ingresa el Nombre del Proyecto y presiona enter"
 	    read _PROYECTO
 		echo -n "Generando symfony para $_PROYECTO" 
@@ -139,7 +138,6 @@ if [ -z "$1" ] ; then
 		ejecute 2
 	    ;;
 	  2 ) # sf3
-	    echo -n "opcion 2"
 	    echo -n "Ingresa el Nombre del Proyecto y presiona enter"
 	    read _PROYECTO
 		echo -n "Generando symfony para $_PROYECTO" 
@@ -148,16 +146,14 @@ if [ -z "$1" ] ; then
 		ejecute 3
 	    ;;
 	  3 ) #DEMO
-		echo "opcion 3"
 		demo
 	    ;;
 	  4 ) #Demo Git clone
-	     echo "Ocpion 4"
 	     demogit
 	    ;;
 	   q ) #Salir
-		  echo "Opcion q"
-		  exit
+		  echo -n "Exit"
+		  fin2
 	##    ;;
 	## *) #salir
 	##    echo "Opcion cualquiera Salir"
