@@ -44,7 +44,7 @@ function ejecute () {
 		ver='3' 
 	fi
 	echo -e "Instalación Concluida \n"
-	read -n 1 -p  "Continuar..."	
+	pause  "Continuar..."	
 	fin
 }
 
@@ -54,7 +54,7 @@ function demo (){
 	echo -e "Has Seleccionado Crear el Proyecto DEMO de symfony 2\n"
 	echo -e "Generando symfony para $_PROYECTO\n"
 	php symfony demo
-	read -n 1 -p "Continuar..."
+	pause "Continuar..."
 	echo -e "\n"
 	echo -e "..::Debe Ejecutar el comando \"composer install\" o \"composer update\" \npara completar la instalacion debe tener instalado composer::.."
 	echo -e "\n"
@@ -69,7 +69,7 @@ function demogit () {
 	echo -e "Has Seleccionado Clonar del repositorio el DEMO de symfony 2\n"
 	echo -e "Generando symfony para $_PROYECTO \n"
 	git clone https://github.com/symfony/symfony-demo.git symfony-demo
-	read -n 1 -p "Continuar..."
+	pause "Continuar..."
 	echo -e "..::Debe Ejecutar el comando \"composer install\" o \"composer update\" \npara completar la instalacion debe tener instalado composer::..\n"
 	ver=''
 	fin
@@ -110,7 +110,6 @@ echo -n "Espere un Momento por favor antes de continuar.."
 php symfony self-update
 
 ##Si vienen Vacio el Primer Parametro
-
 if [ -z "$1" ] ; then
 ##menu
 	echo -e ""
@@ -125,15 +124,9 @@ if [ -z "$1" ] ; then
 	echo -e "           =   q. Salir                                                ="
 	echo -e "           =                                                           ="
 	echo -e "           ============================================================="
-	echo -e "" 
-	#echo -e "Opcion: "
+	echo -e ""
 	read -n 1 -p "Opcion: " opt
 	echo "Opcion seleccionada : $opt"
-	# if %_opcion% ==1 goto capture
-	# if %_opcion% ==2 goto capture
-	# if %_opcion% ==3 goto demo
-	# if %_opcion% ==4 goto demogit
-	# if %_opcion% ==q goto fin2
 
 	##Case Clause para Menu
 	case "$opt" in
