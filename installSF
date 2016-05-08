@@ -130,19 +130,19 @@ if [ -z "$1" ] ; then
 	##Case Clause para Menu
 	case "$opt" in
 	  1 ) #sf2.8
-	    echo -n "\nIngresa el Nombre del Proyecto y presiona enter"
+	    echo -e "\nIngresa el Nombre del Proyecto y presiona enter\n"
 	    read _PROYECTO
 		echo -n "Generando symfony para $_PROYECTO" 
 		echo -n "..::Esto puede tardar un poco::.."
-		mensaje = "Ejecuta el comando \"console server:run\" para Ejecutar el servidor en http://localhost:8000\n"
+		mensaje="Ejecuta el comando \"console server:run\" para Ejecutar el servidor en http://localhost:8000\n"
 		ejecute 2
 	    ;;
 	  2 ) # sf3
-	    echo -n "\nIngresa el Nombre del Proyecto y presiona enter"
+	    echo -e "\nIngresa el Nombre del Proyecto y presiona enter\n"
 	    read _PROYECTO
 		echo -n "Generando symfony para $_PROYECTO" 
 		echo -n "..::Esto puede tardar un poco::.."
-		mensaje = "Ejecuta el comando \"console server:run\" para Ejecutar el servidor en http://localhost:8000\n"
+		mensaje="Ejecuta el comando \"console server:run\" para Ejecutar el servidor en http://localhost:8000\n"
 		ejecute 3
 	    ;;
 	  3 ) #DEMO
@@ -154,7 +154,7 @@ if [ -z "$1" ] ; then
 	     demogit
 	    ;;
 	   q ) #Salir
-		  echo -n "\n Exit"
+		  echo -e "\n Exit\n"
 		  fin2
 	##    ;;
 	## *) #salir
@@ -170,14 +170,15 @@ else
 
 	case "$1" in 
 		demo )
-			echo "Por Comando demo"
+			echo -e "\nComando Demo\n"
 			demo
 			;;
 		demogit )
-			echo "Por Comando demogit"
+			echo -e "\nCoamdno demogit\n"
 			 demogit
 			;;	
 		  *)
+			echo -e "\n"
 			_PROYECTO="$1"
 			if [ -z "$2" ] ; then
 				ejecute 3 ##Ejecute symfony3
