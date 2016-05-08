@@ -26,7 +26,7 @@ Console supports all the commands and their command parameters
 
 Cluster 2 additional files that allow the installation of Symfony **run the installer** and then copy the files from the console and console.cmd depending on the operating system and version of Symfony in the installation folder.
 
-## Version 1.2 
+## Version 1.2  [Download](https://github.com/csalazart/SF2ShortsCommands/releases/tag/1.2)
 ### Adding installer Symfony and practical script for windows and linux OS console command 
 
 In version 1.2 has been added installer symofony from the web [symfony.com] (http://symfony.com/download) to make easy the work of installing, this is updated each time the script is launched. You cand download the script your self if you want.
