@@ -61,6 +61,7 @@ Inicia la instalación o inicialización de los proyectos directo sin necesidad 
 Donde el **nombreProyecto** será la carpeta donde se instalará la versión de symfony elegida 
 
 ***
+### Actual Versión : [Versión 1.2](https://github.com/csalazart/SF2ShortsCommands/releases/tag/1.2)
 
 ### Fuente : [https://github.com/csalazart/SF2ShortsCommands](https://github.com/csalazart/SF2ShortsCommands) 
 
