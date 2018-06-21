@@ -16,11 +16,13 @@ function fin2 (){
 
 function fin () {
 	##:fin
-    	echo -e "$mensaje"
+    echo -e "$mensaje"
 	echo -e "Instalacion Concluida Ahora Copiando Shorts Cuts a Directorio  $_PROYECTO\n "
 	cp "console$ver" "$_PROYECTO/console"
 	chmod +x "$_PROYECTO/console"
-	#alias proj="cd $_PROYECTO/"
+	source "alias-console${ver}"
+	#alias proj="cd ${_PROYECTO}/"
+	#
 	#echo -e "Entrando al Directorio $_PROYECTO\n"
 	#source proj
 	#fin2
@@ -85,7 +87,7 @@ clear
 #
 echo "      =======:::::..  Script Batch por CAST<csalazart33@gmail.com>  ..:::::=======   "
 echo ""
-echo "                Versión 1.2  https://github.com/csalazart/SF2ShortsCommands     "
+echo "                Versión 1.3  https://github.com/csalazart/SF2ShortsCommands     "
 echo ""
 echo "          ============================================================="
 echo "          =                                                           ="
