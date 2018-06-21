@@ -21,7 +21,8 @@ function fin () {
 	cp "console$ver" "$_PROYECTO/console"
 	chmod +x "$_PROYECTO/console"
 	source "alias-console${ver}"
-	#alias proj="cd ${_PROYECTO}/"
+	DIR="$(readlink -f "$(dirname "$0")")"
+	#alias symfony="cd ${DIR}/${_PROYECTO}/"
 	#
 	#echo -e "Entrando al Directorio $_PROYECTO\n"
 	#source proj
