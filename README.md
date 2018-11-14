@@ -66,5 +66,4 @@ Donde el **nombreProyecto** será la carpeta donde se instalará la versión de 
 ### Fuente : [https://github.com/csalazart/SF2ShortsCommands](https://github.com/csalazart/SF2ShortsCommands) 
 
 ### Author:
-- Carlos A Salazar <csalazart>
-- ["GitHub"](https://github.com/csalazart)
+- [Carlos A Salazar](https://github.com/csalazart) <csalazart>
