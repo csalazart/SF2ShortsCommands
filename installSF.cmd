@@ -7,7 +7,7 @@ color 2F
 @echo. 
 @echo "      =======:::::..  Script Batch por CAST<csalazart33@gmail.com>  ..:::::=======   
 @echo.
-@echo                  Versión 1.2  https://github.com/csalazart/SF2ShortsCommands     
+@echo                  Versión 1.3  https://github.com/csalazart/SF2ShortsCommands     
 @echo.
 @echo            =============================================================
 @echo            =                                                           =
